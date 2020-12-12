@@ -3,24 +3,28 @@ package com.sala_reuniao.salaDeReuniao.exception;
 import java.util.Date;
 
 public class ErrorDetails {
-    private Date data;
+    private Date date;
     private String message;
     private String details;
 
-    public ErrorDetails(Date data, String message, String details) {
+
+    public ErrorDetails(Date date, String message, String details) {
         super();
-        this.data = data;
+        this.date = date;
         this.message = message;
         this.details = details;
     }
 
-    public Date getData() {
-        return data;
+
+    public Date getDate() {
+        return date;
     }
+
 
     public String getMessage() {
         return message;
     }
+
 
     public String getDetails() {
         return details;
