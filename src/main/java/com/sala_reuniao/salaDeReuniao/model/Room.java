@@ -1,9 +1,16 @@
 package com.sala_reuniao.salaDeReuniao.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name="mettingroom")
+@Table(name="meetingroom")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,58 +23,12 @@ public class Room {
     private String date;
 
     @Column(nullable = false)
-    private String starHour;
+    private String startHour;
 
     @Column(nullable = false)
     private String endHour;
 
-    public Room(long id, String name, String date, String starHour, String endHour) {
-        this.id = id;
-        this.name = name;
-        this.date = date;
-        this.starHour = starHour;
-        this.endHour = endHour;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getStarHour() {
-        return starHour;
-    }
-
-    public void setStarHour(String starHour) {
-        this.starHour = starHour;
-    }
-
-    public String getEndHour() {
-        return endHour;
-    }
-
-    public void setEndHour(String endHour) {
-        this.endHour = endHour;
-    }
+    /*Decidi usar lombok no lugar de constructor get e set*/
 
     @Override
     public String toString() {
@@ -75,7 +36,7 @@ public class Room {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", date='" + date + '\'' +
-                ", starHour='" + starHour + '\'' +
+                ", starHour='" + startHour + '\'' +
                 ", endHour='" + endHour + '\'' +
                 '}';
     }

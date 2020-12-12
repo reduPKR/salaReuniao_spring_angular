@@ -23,7 +23,7 @@ public class RoomController {
         return repository.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/rooms/{id}")
     public ResponseEntity<Room> getById(@PathVariable long id) throws ResourceNotFoundException {
         Room room = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Sala não encontrada: "+id));
         return ResponseEntity.ok().body(room);
@@ -40,7 +40,7 @@ public class RoomController {
 
         room.setName(room_put.getName());
         room.setDate(room_put.getDate());
-        room.setStarHour(room_put.getStarHour());
+        room.setStartHour(room_put.getStartHour());
         room.setEndHour(room_put.getEndHour());
 
         final Room updated_room = repository.save(room);
